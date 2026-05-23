@@ -1,1 +1,19 @@
-
+@startuml
+node "Клиентский ПК" {
+ artifact "Web Browser"
+}
+node "Streamlit Server" {
+ component "IAS Developer Monitor"
+ component "Python Runtime"
+}
+node "GitHub Cloud" {
+ component "GitHub REST API"
+}
+database "CSV Storage" {
+ artifact "History CSV"
+}
+5
+"Web Browser" --> "IAS Developer Monitor"
+"IAS Developer Monitor" --> "GitHub REST API"
+"IAS Developer Monitor" --> "History CSV"
+@enduml
