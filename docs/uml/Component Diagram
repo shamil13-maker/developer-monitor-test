@@ -1,1 +1,21 @@
-
+@startuml
+package "ИАС управления состоянием разработчика" {
+ [Streamlit UI] as UI
+ [Data Collector] as DC
+ [State Estimator] as SE
+ [Decision Engine] as DE
+ [Productivity Model] as PM
+ [PID Controller] as PID
+ [Analytics Module] as AM
+}
+database "Session State" as DB
+cloud "GitHub API" as GitHub
+GitHub --> DC
+DC --> SE
+SE --> PM
+PM --> PID
+PID --> DE
+DE --> UI
+AM --> UI
+UI --> DB
+@enduml
