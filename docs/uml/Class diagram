@@ -1,1 +1,56 @@
-
+@startuml
+skinparam classAttributeIconSize 0
+class DeveloperState {
+ +x_tech: float
+ +x_time: float
+ +valence: float
+ +activation: float
+ +timestamp: datetime
+ +commits: int
+ +normalize()
+ +to_dict()
+}
+class DataCollector {
+ +collect_commits()
+ +collect()
+}
+class StateEstimator {
+ +estimate()
+}
+class DecisionEngine {
+ +decide()
+ +risk_score()
+}
+class ProductivityModel {
+ +f_tech()
+ +g_emo()
+ +productivity()
+}
+class ObjectiveFunction {
+ +evaluate()
+}
+class PIDState {
+ +integral: float
+ +prev_error: float
+ +last_output: float
+ +last_J: float
+}
+class PIDController {
+ +update()
+ +urgency_label()
+}
+class StreamlitUI {
+ +render_dashboard()
+ +render_charts()
+ +export_csv()
+}
+DataCollector --> DeveloperState
+StateEstimator --> DeveloperState
+DecisionEngine --> DeveloperState
+ProductivityModel --> DeveloperState
+ObjectiveFunction --> DeveloperState
+PIDController --> PIDState
+StreamlitUI --> DecisionEngine
+StreamlitUI --> ProductivityModel
+StreamlitUI --> PIDController
+@enduml
