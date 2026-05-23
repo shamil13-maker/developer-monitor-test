@@ -1,1 +1,8 @@
-
+@startuml
+[*] --> Normal
+Normal --> Stress : valence < -0.4
+Stress --> BurnoutRisk : x_time > 0.8
+BurnoutRisk --> Critical : risk > 0.7
+Critical --> Recovery : break
+Recovery --> Normal : состояние стабилизировано
+@enduml
